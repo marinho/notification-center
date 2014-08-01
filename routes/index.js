@@ -33,7 +33,7 @@ router.post("/ping", function(req, res) {
 var SECURITY_TOKEN = "Vera";
 
 /* POST method to ping the browser sessions */
-router.post("/push", function(req, res) {
+router.post("/notification", function(req, res) {
   // Paket validation
   if (!req.body.channel || !req.body.securityToken || req.body.securityToken != SECURITY_TOKEN) {
     res.send(400, "Invalid paket");
