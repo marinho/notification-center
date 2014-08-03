@@ -112,7 +112,7 @@ module.exports = function (grunt) {
         }, 500);
     });
 
-    grunt.registerTask('default', 'Start working on this project.', [
+    grunt.registerTask('workon', 'Start working on this project.', [
         'jshint',
         'mochacli',
         'develop',
@@ -123,4 +123,6 @@ module.exports = function (grunt) {
         'jshint',
         'mochacli'
     ]);
+
+    grunt.registerTask('default', ['workon']);
 };

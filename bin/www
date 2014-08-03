@@ -2,11 +2,11 @@
 var debug = require('debug')('expressapp');
 var http = require('../app');
 
-var httpAddr = process.env.IPADDR || "127.0.0.1";
+var httpAddr = process.env.IPADDR || '127.0.0.1';
 var httpPort = process.env.PORT || 5030;
 
 // Start the http server at port and IP defined before
-http.listen(httpPort, httpAddr, function() {
-  console.log("Server up and running. Go to http://" + httpAddr + ":" + httpPort);
+http.listen(httpPort, httpAddr, function () {
+    console.log('Server up and running. Go to http://' + httpAddr + ':' + httpPort);
 });
 
