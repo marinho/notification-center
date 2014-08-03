@@ -1,11 +1,11 @@
 ## Examples with Curl
 
 ```
-curl -X POST -d '{"channel": "123", "securityToken": "Vera", "bookings": []}' -H "Content-Type: application/json" http://localhost:3000/notification
+curl -X POST -d '{"channel": "123", "securityToken": "Vera", "bookings": []}' -H "Content-Type: application/json" http://localhost:5030/notification
 
-curl -X POST -d '{"channel": "ABC", "securityToken": "Vera", "bookings": []}' -H "Content-Type: application/json" http://localhost:3000/notification
+curl -X POST -d '{"channel": "ABC", "securityToken": "Vera", "bookings": []}' -H "Content-Type: application/json" http://localhost:5030/notification
 
-curl -X POST http://localhost:3000/ping
+curl -X POST http://localhost:5030/ping
 ```
 
 ## On JS for browser
@@ -30,7 +30,7 @@ function init() {
   });
 
   globals.socket.on('ping', function (data) {
-    console.log('ping', data.message);
+    console.log('ping', data);
   });
 
   globals.socket.on('notification', function (data) {
@@ -40,3 +40,8 @@ function init() {
 
 $(document).on('ready', init);
 ```
+
+## To do
+
+- tests
+- config file
