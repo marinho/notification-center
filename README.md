@@ -25,8 +25,8 @@ function init() {
     console.log('connected', globals.sessionId);
 
     // Listen to a channel. Can be moved to another function to call afterwards
-    globals.socket.emit('listenToChannel', {"sessionId": globals.sessionId,
-                                            "channel": channel});
+    globals.socket.emit('listenToChannel', {'sessionId': globals.sessionId,
+                                            'channel': channel});
   });
 
   globals.socket.on('ping', function (data) {
@@ -41,7 +41,10 @@ function init() {
 $(document).on('ready', init);
 ```
 
-## To do
+## License and Author
 
-- tests
-- config file
+Copyright 2014. Created by Marinho Brandao < marinho at gmail >
+
+This software is under MIT license - open source and free for distribution software, which
+can be changed and adapted for any usage with no restrictions. The only requirement from
+the author is that its authorship is kept published as it is.

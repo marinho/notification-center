@@ -44,6 +44,20 @@ describe('POST /notification', function(){
         .expect("Invalid paket")
         .expect(400, done);
     });
+    it('should reject notification with no channel', function(done){
+        request(app).post('/notification')
+        .set('Content-Type', 'application/json')
+        .send('{"securityToken": "VeraLeniLeticia"}')
+        .expect("Invalid paket")
+        .expect(400, done);
+    });
+    it('should reject wrong securityToken', function(done){
+        request(app).post('/notification')
+        .set('Content-Type', 'application/json')
+        .send('{"channel": "chat", "securityToken": "123"}')
+        .expect("Invalid paket")
+        .expect(400, done);
+    });
     it('should send a valid notification message', function(done){
         request(app).post('/notification')
         .set('Content-Type', 'application/json')
