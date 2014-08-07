@@ -79,8 +79,8 @@ NotificationCenter.prototype.addNotificationToList = function(type, data) {
 
     $("<li>" + type + ": " + JSON.stringify(data) + "</li>").appendTo("#list ol");
     
-    // Keeps always 20 or less notifications
-    while ($("#list li").length > 20) {
+    // Keeps always 50 or less notifications
+    while ($("#list li").length > 50) {
         $("#list li:first-child").remove();
     }
 }
