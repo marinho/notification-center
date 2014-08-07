@@ -16,7 +16,7 @@ describe('GET /version', function(){
     it('should get the current version', function(done){
         request(app).get('/version')
         .expect(200)
-        .expect('{"version":"0.1.0"}', done);
+        .expect('{"version":"0.1.1"}', done);
     });
 });
 
