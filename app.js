@@ -29,7 +29,8 @@ try {
             'allowedOrigins': '*:*' //'domain.com:* http://domain.com:* http://www.domain.com:*';
         },
         'push': {
-            'securityToken': 'VeraLeniLeticia'
+            'securityToken': 'VeraLeniLeticia',
+            'monitoringChannel': null // if containing a value, sends all notifications to this channel too
         }
     };
 }

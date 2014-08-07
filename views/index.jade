@@ -2,5 +2,22 @@ extends layout
 
 block content
   h1= title
-  p Here you can follow all dispatching notifications coming through T Dispatch
-  ul(id='list')
+  p All data below started the be collected at&nbsp;
+    span(id='initialTime')
+  div(id='totals')
+    div(id='totalCount')
+      label Count:
+      span(class='value')
+    div(id='perMinute')
+      label Notif. per minute:
+      span(class='value')
+  div(id='list')
+    div(class='inner')
+      p
+        span Update the last 50 dispatched notifications
+        button(type='button') Pause
+      ol
+  div(id='channels')
+    div(class='inner')
+      p Channels:
+      ul

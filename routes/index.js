@@ -13,7 +13,7 @@ router.get('/console', function (req, res) {
 
 /* GET version */
 router.get('/version', function (req, res) {
-    res.json({ version: '0.1.0' });
+    res.json({ version: '0.1.1' });
 });
 
 
@@ -55,6 +55,12 @@ router.post('/notification', function (req, res) {
 
     // Let our chatroom know there was a new message
     ioComm.sendMessageToBrowser(req.app.io, 'notification', data, req.body.channel);
+
+    // Send to monitoring channel
+    if (req.app.config.push.monitoringChannel) {
+        data.receivingChannel = req.body.channel;
+        ioComm.sendMessageToBrowser(req.app.io, 'notification', data, req.app.config.push.monitoringChannel);
+    }
 
     // Looks good, let the client know
     res.send('SENT');
