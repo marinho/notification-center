@@ -35,7 +35,9 @@ try {
 }
 
 // SocketIO setup
-app.io = require('socket.io').listen(http, {origins: app.config.websocket.allowedOrigins});
+app.io = require('socket.io').listen(http, {
+    origins: app.config.websocket.allowedOrigins
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

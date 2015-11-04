@@ -6,4 +6,4 @@ test:
 	grunt test
 all: basic-dev install test
 run:
-	grunt workon
+	IPADDR='0.0.0.0' grunt workon

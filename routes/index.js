@@ -5,6 +5,12 @@ var express = require('express'),
     ioComm = require('../util/io_comm');
 
 
+/* GET / */
+router.get('/', function (req, res) {
+    res.send('notification-center');
+});
+
+
 /* GET home page. */
 router.get('/console', function (req, res) {
     res.render('index', { title: 'Notification Center' });
