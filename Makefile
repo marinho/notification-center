@@ -1,9 +1,9 @@
-watch:
-	grunt workon
+install-dev:
+	npm install -g yo grunt grunt-cli bower generator-node-express
 install:
-	npm install -g yo grunt grunt-cli bower
-	#npm install generator-node-express grunt-mocha-cli expect.js geojson-utils superagent js-yaml
-	npm install .
+	npm install
 test:
 	grunt test
-all: watch
+all: basic-dev install test
+run:
+	grunt workon

@@ -78,12 +78,12 @@ module.exports = function (grunt) {
                 'routes/*.js',
                 'util/*.js',
                 //'!assets/scripts/vendor/*',
-                //'test/spec/**/*.js'
+                //'tests/spec/**/*.js'
             ]
         },
 
         mochacli: {
-            all: ['test/**/*.js'],
+            all: ['tests/**/*.js'],
             options: {
                 reporter: 'spec',
                 ui: 'tdd'
