@@ -1,5 +1,5 @@
 install-dev:
-	npm install -g yo grunt grunt-cli bower generator-node-express
+	npm install -g yo grunt grunt-cli bower generator-node-express mocha
 install:
 	npm install
 test:
