@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express'),
+    cors = require('cors'),
     path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
@@ -34,10 +35,12 @@ try {
     };
 }
 
+app.use(cors({
+    origin: app.config.websocket.allowedOrigins
+}));
+
 // SocketIO setup
-app.io = require('socket.io').listen(http, {
-    origins: app.config.websocket.allowedOrigins
-});
+app.io = require('socket.io').listen(http);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
