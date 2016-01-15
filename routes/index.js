@@ -37,7 +37,7 @@ router.post('/ping', function (req, res) {
     }
 
     // Let our chatroom know there was a new message
-    ioComm.sendMessageToBrowser(req.app.io, 'ping', data);
+    ioComm.sendMessageToBrowser(req.app.io, 'ping', data, req.body.channel);
 
     // Looks good, let the client know
     res.send('SENT');
