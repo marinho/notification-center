@@ -20,6 +20,7 @@ try {
     var configFileName = __dirname + '/config/config.yml';
     console.log('Loading config from ' + configFileName);
     app.config = yaml.safeLoad(fs.readFileSync(configFileName, 'utf8'));
+    app.set('env', app.config.env || 'development');
 } catch (e) {
     app.config = {
         'server': {
@@ -67,36 +68,20 @@ app.io.on('connection', function (socket) {
 });
 
 /// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+app.use(function (req, res) {
+    res.send(400, 'Not found');
 });
 
-/// error handlers
+// error handlers
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function (err, req, res) { // missing "next"
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err,
-            title: 'error'
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err, req, res) { // missing "next"
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {},
-        title: 'error'
-    });
+app.use(function (err, req, res) {
+    console.error(err.stack);
+    if (app.get('env') === 'development') {
+        res.status(500);
+        res.render('error', { error: err });
+    } else {
+        res.status(500).send('Server Error');
+    }
 });
 
 module.exports = http;
